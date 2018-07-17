@@ -26,25 +26,24 @@ class Owner extends Component {
             });
         }
         
-
-        
-
     render() {
     return (
         <div className="container">
         <p>Omistajat: </p>
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>City</th>
-            </tr>
-            {this.state.owner_data.map((owner) =>
-                <tr key={owner._id}>
-                    <td>{owner.first_name}</td>
-                    <td>{owner.family_name}</td>
-                    <td>{owner.city}</td>
+            <table>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>City</th>
                 </tr>
-            )}
+                {this.state.owner_data.map((owner) =>
+                    <tr key={owner._id}>
+                        <td>{owner.first_name}</td>
+                        <td>{owner.family_name}</td>
+                        <td>{owner.city}</td>
+                    </tr>
+                )}
+            </table>
     </div>
     );
     }

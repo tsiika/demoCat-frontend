@@ -4,10 +4,23 @@ body {
   font-family: sans-serif;
 }
 
+.container{
+  padding-left: 20px;
+}
+
 td{
   padding-left: 20px;
+  text-align: center;
 }
 
 th{
   padding-left: 20px;
+  text-align: center;
+}
+tr {
+  text-align: center;
+}
+
+table {
+  text-align: center;
 }

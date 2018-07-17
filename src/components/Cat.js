@@ -33,18 +33,20 @@ class Cat extends Component {
     return (
         <div className="container">
         <p>Kissat: </p>
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Owner</th>
-        </tr>
-        {this.state.cat_data.map((cat) =>
-            <tr key={cat._id}>
-                <td>{cat.name}</td>
-                <td>{cat.age}</td>
+            <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Owner</th>
             </tr>
-            )}
-            </div>
+            {this.state.cat_data.map((cat) =>
+                <tr key={cat._id}>
+                    <td>{cat.name}</td>
+                    <td>{cat.age}</td>
+                </tr>
+                )}
+            </table>
+        </div>
     );
     }
 }
