@@ -19,7 +19,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tsiika/demoCat-frontend.git"
+    "url": "git+https://github.com/tsiika/demoCat-frontend.git"
   },
-  "proxy": "http://localhost:1234/"
+  "proxy": "http://localhost:1234/",
+  "description": "This is example project for Opiframe Oy's Internet of Things training program.",
+  "bugs": {
+    "url": "https://github.com/tsiika/demoCat-frontend/issues"
+  },
+  "homepage": "https://github.com/tsiika/demoCat-frontend#readme",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
