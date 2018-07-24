@@ -8,19 +8,24 @@ body {
   padding-left: 20px;
 }
 
+table {
+  border-collapse: collapse;
+  width: 90vw;
+}
+
 td{
   padding-left: 20px;
-  text-align: center;
+  height: 5vh;
 }
 
 th{
   padding-left: 20px;
-  text-align: center;
-}
-tr {
-  text-align: center;
+  height: 50px;
+  background-color: rgb(183, 215, 223);
 }
 
-table {
+table, th, tr, td {
   text-align: center;
+  border: 1px solid black;
+
 }

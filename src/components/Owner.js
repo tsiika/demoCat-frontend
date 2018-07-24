@@ -32,15 +32,17 @@ class Owner extends Component {
         <p>Omistajat: </p>
             <table>
                 <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>City</th>
+                    <th>Etunimi</th>
+                    <th>Sukunimi</th>
+                    <th>Kaupunki</th>
+                    <th>Työkalut</th>
                 </tr>
                 {this.state.owner_data.map((owner) =>
                     <tr key={owner._id}>
                         <td>{owner.first_name}</td>
                         <td>{owner.family_name}</td>
                         <td>{owner.city}</td>
+                        <td>X</td>
                     </tr>
                 )}
             </table>

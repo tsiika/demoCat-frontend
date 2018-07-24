@@ -35,14 +35,15 @@ class Cat extends Component {
         <p>Kissat: </p>
             <table>
             <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Owner</th>
+                <th>Nimi</th>
+                <th>Ikä</th>
+                <th>Työkalut</th>
             </tr>
             {this.state.cat_data.map((cat) =>
                 <tr key={cat._id}>
                     <td>{cat.name}</td>
                     <td>{cat.age}</td>
+                    <td>X</td>
                 </tr>
                 )}
             </table>
