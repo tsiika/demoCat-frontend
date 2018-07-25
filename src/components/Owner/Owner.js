@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
+import oNew from './oNew';
 import oEdit from './oEdit.js';
 import oDelete from './oDelete.js';
+
+import { BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 class Owner extends Component {
@@ -30,7 +34,7 @@ class Owner extends Component {
     render() {
     return (
         <div className="container">
-        <p>Omistajat: </p>
+        <h2>Omistajat: </h2>
             <table>
                 <tr>
                     <th>Etunimi</th>
@@ -50,7 +54,9 @@ class Owner extends Component {
                     </tr>
                 )}
             </table><br/>
+            <Link to='/omistaja/new/'><FontAwesomeIcon icon={faPlusCircle} /> Lisää omistaja</Link>
             <Switch>
+                <Route path="/omistaja/new/" component={oNew} />
                 <Route path="/omistaja/edit/:id" component={oEdit} />
                 <Route path="/omistaja/delete/:id" component={oDelete} />
             </Switch>

@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import cNew from './cNew';
 import cEdit from './cEdit';
 import cDelete from './cDelete';
+
 import { BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -31,7 +35,7 @@ class Cat extends Component {
     render() {
     return (
         <div className="container">
-        <p>Kissat: </p>
+        <h2>Kissat: </h2>
             <table>
             <tr>
                 <th>Nimi</th>
@@ -49,7 +53,9 @@ class Cat extends Component {
                 </tr>
                 )}
             </table><br/>
+            <Link to='/kissa/new/'><FontAwesomeIcon icon={faPlusCircle} /> Lisää kissa</Link>
             <Switch>
+                <Route path="/kissa/new/" component={cNew} />
                 <Route path="/kissa/edit/:id" component={cEdit} />
                 <Route path="/kissa/delete/:id" component={cDelete} />
             </Switch>
