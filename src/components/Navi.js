@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/index.css';
 import Home from '../modules/Home';
-import Cat from '../components/Cat';
-import Owner from '../components/Owner';
+import Cat from '../components/Cat/Cat';
+import Owner from '../components/Owner/Owner';
 import { Navbar, Nav, MenuItem } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
 

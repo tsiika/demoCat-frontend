@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import { BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
+import oEdit from './oEdit.js';
+import oDelete from './oDelete.js';
 
 
 class Owner extends Component {
@@ -42,10 +43,17 @@ class Owner extends Component {
                         <td>{owner.first_name}</td>
                         <td>{owner.family_name}</td>
                         <td>{owner.city}</td>
-                        <td>X</td>
+                        <td>
+                        <Link to={`/omistaja/edit/${owner._id}`}>Muokkaa</Link> &nbsp;
+                        <Link to={`/omistaja/delete/${owner._id}`}>Poista</Link>
+                        </td>
                     </tr>
                 )}
-            </table>
+            </table><br/>
+            <Switch>
+                <Route path="/omistaja/edit/:id" component={oEdit} />
+                <Route path="/omistaja/delete/:id" component={oDelete} />
+            </Switch>
     </div>
     );
     }

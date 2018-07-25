@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import cEdit from './cEdit';
+import cDelete from './cDelete';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
 
 
 
@@ -26,9 +28,6 @@ class Cat extends Component {
             });
         }
         
-
-        
-
     render() {
     return (
         <div className="container">
@@ -43,10 +42,17 @@ class Cat extends Component {
                 <tr key={cat._id}>
                     <td>{cat.name}</td>
                     <td>{cat.age}</td>
-                    <td>X</td>
+                    <td>
+                        <Link to={`/kissa/edit/${cat._id}`}>Muokkaa</Link> &nbsp;
+                        <Link to={`/kissa/delete/${cat._id}`}>Poista</Link>
+                    </td>
                 </tr>
                 )}
-            </table>
+            </table><br/>
+            <Switch>
+                <Route path="/kissa/edit/:id" component={cEdit} />
+                <Route path="/kissa/delete/:id" component={cDelete} />
+            </Switch>
         </div>
     );
     }
