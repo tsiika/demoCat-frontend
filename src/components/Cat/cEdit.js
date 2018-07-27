@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 
@@ -26,8 +27,27 @@ class cEdit extends Component {
             });
         }
         
+        onChange = (e) => {
+            var state = this.state.cat_data
+            state[e.target.name] = e.target.value;
+            this.setState({cat_data: state});
+            }
+    
+        onSubmit = (e) => {
+            e.preventDefault();
 
-        
+            var { name, age } = this.state.cat_data;
+
+            axios.put('/demo/cats/'+this.props.match.params.id, { name, age })
+                .then((result ) => {
+                    console.log(result);
+                })
+                .catch((error) => {
+                    if(error.response.status === 500) {
+                        console.log(500);
+                    }
+                });
+        }
 
     render() {
     return (
@@ -36,11 +56,13 @@ class cEdit extends Component {
 
         <p>Muokkaa kissaa "{cat.name}"</p>
             )}
-            <form>
-                <label>Nimi:</label><br/>
-                <input type="text" /><br/>
-                <label>Ikä:</label><br/>
-                <input type="number"/><br/>
+            <form onSubmit={this.onSubmit}>
+                <label for="name">Nimi:</label><br/>
+                <input type="text" name="name" value={this.state.cat_data.name} onChange={this.onChange} /><br/>
+
+                <label for="age">Ikä:</label><br/>
+                <input type="number" name="age" value={this.state.cat_data.age} onChange={this.onChange} /><br/>
+
                 <button type="submit">Lähetä</button>
             </form>
             
