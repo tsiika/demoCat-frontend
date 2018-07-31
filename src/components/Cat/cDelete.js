@@ -3,8 +3,6 @@ import axios from 'axios';
 import { Button } from 'react-bootstrap';
 
 
-
-
 class cDelete extends Component {
 
     constructor(props) {
@@ -25,17 +23,15 @@ class cDelete extends Component {
                     console.log(401);
                 }
             });
-        }
-        
-        delete(id){
-            console.log(id);
-            axios.delete('/demo/cats/'+this.props.match.params.id)
-                .then((result) => {
-                    this.props.history.push('/kissa')
-                });
-        }
+    }
 
-        
+    delete(id){
+        console.log(id);
+        axios.delete('/demo/cats/'+this.props.match.params.id)
+            .then((result) => {
+                this.props.history.push('/kissa')
+            });
+    }
 
     render() {
     return (
@@ -43,19 +39,21 @@ class cDelete extends Component {
             <h2>Olet poistamassa seuraavaa kissaa:</h2>
             {this.state.cat_data.map((cat) =>
             <dl key={cat._id}>
-                    <dt>Nimi:</dt>
-                    <dd>{cat.name}</dd><br/>
+                  <dt>Nimi:</dt>
+                  <dd>{cat.name}</dd><br/>
 
-                    <dt>Ikä:</dt>
-                    <dd>{cat.age}</dd><br/>
+                  <dt>Ikä:</dt>
+                  <dd>{cat.age}</dd><br/>
 
-                    <dt>ID-tunnus:</dt>
-                    <dd>{cat._id}</dd><br/>
+                  <dt>ID-tunnus:</dt>
+                  <dd>{cat._id}</dd><br/>
 
+              <h3>Oletko varma? <b>Poistamista ei voi perua!</b></h3>
 
-            <h3>Oletko varma? <b>Poistamista ei voi perua!</b></h3>
-
-            <Button onClick={this.delete.bind(this, this.state.cat_data._id)} className="btn btn-danger">Poista</Button>
+              <Button
+                  onClick={this.delete.bind(this, this.state.cat_data._id)}
+                  className="btn btn-danger">Poista
+              </Button>
             </dl>
             )}
         </div>

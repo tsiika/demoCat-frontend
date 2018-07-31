@@ -20,23 +20,24 @@ class Cat extends Component {
     }
 
     componentDidMount() {
-        axios.get('/demo/cats/')
-            .then(res => {
-                this.setState({ cat_data: res.data });
-                console.log(this.state.cat_data);
-            })
-            .catch((error) => {
-                if(error.response.status === 401) {
-                    console.log(401);
-                }
-            });
-        }
-        
+      axios.get('/demo/cats/')
+        .then(res => {
+            this.setState({ cat_data: res.data });
+            console.log(this.state.cat_data);
+        })
+        .catch((error) => {
+            if(error.response.status === 401) {
+              console.log(401);
+            }
+        });
+    }
+
     render() {
     return (
         <div className="container">
         <h2>Kissat: </h2>
-            <table>
+        <table>
+          <tbody>
             <tr>
                 <th>Nimi</th>
                 <th>Ikä</th>
@@ -51,14 +52,15 @@ class Cat extends Component {
                         <Link to={`/kissa/delete/${cat._id}`}>Poista</Link>
                     </td>
                 </tr>
-                )}
-            </table><br/>
-            <Link to='/kissa/new/'><FontAwesomeIcon icon={faPlusCircle} /> Lisää kissa</Link>
-            <Switch>
-                <Route path="/kissa/new/" component={cNew} />
-                <Route path="/kissa/edit/:id" component={cEdit} />
-                <Route path="/kissa/delete/:id" component={cDelete} />
-            </Switch>
+            )}
+          </tbody>
+        </table><br/>
+        <Link to='/kissa/new/'><FontAwesomeIcon icon={faPlusCircle} /> Lisää kissa</Link>
+        <Switch>
+            <Route path="/kissa/new/" component={cNew} />
+            <Route path="/kissa/edit/:id" component={cEdit} />
+            <Route path="/kissa/delete/:id" component={cDelete} />
+        </Switch>
         </div>
     );
     }

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
-
-
 class cNew extends Component {
 
     constructor() {
@@ -35,16 +33,28 @@ class cNew extends Component {
     return (
         <div className="container">
             <form onSubmit={this.onSubmit}>
-                <div class="form-group">
-                    <label for="name">Nimi:</label>
-                    <input type="text" class="form-control" name="name" value={name} onChange={this.onChange} placeholder="Nimi" />
+                <div className="form-group">
+                    <label>Nimi:</label>
+                    <input type="text"
+                      className="form-control"
+                      name="name"
+                      value={name}
+                      onChange={this.onChange}
+                      placeholder="Nimi"
+                    />
                 </div>
 
-                <div class="form-group">
+                <div className="form-group">
                     <label for="age">Ikä:</label>
-                    <input type="text" class="form-control" name="age" value={age} onChange={this.onChange} placeholder="Ikä" />
+                      <input type="text"
+                      className="form-control"
+                      name="age"
+                      value={age}
+                      onChange={this.onChange}
+                      placeholder="Ikä"
+                    />
                 </div>
-    
+
                 <button type="submit" class="btn btn-default">Lähetä</button>
             </form>
         </div>

@@ -23,9 +23,9 @@ render() {
                 <Route path="/kissa" component={Cat} />
                 <Route path="/omistaja" component={Owner} />
             </Switch>
-        </div>
+    </div>
     );
-    }
+  }
 }
 
 export default Navi;

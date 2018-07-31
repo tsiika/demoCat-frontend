@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
-
-
 class oNew extends Component {
 
     constructor() {
@@ -36,21 +34,39 @@ class oNew extends Component {
     return (
         <div className="container">
             <form onSubmit={this.onSubmit}>
-                <div class="form-group">
-                    <label for="first_name">Etunimi:</label>
-                    <input type="text" class="form-control" name="first_name" value={first_name} onChange={this.onChange} placeholder="Etunimi" />
+                <div className="form-group">
+                    <label>Etunimi:</label>
+                    <input type="text"
+                      class="form-control"
+                      name="first_name"
+                      value={first_name}
+                      onChange={this.onChange}
+                      placeholder="Etunimi"
+                    />
                 </div>
 
-                <div class="form-group">
-                    <label for="family_name">Sukunimi:</label>
-                    <input type="text" class="form-control" name="family_name" value={family_name} onChange={this.onChange} placeholder="Sukunimi" />
+                <div className="form-group">
+                    <label>Sukunimi:</label>
+                    <input type="text"
+                      class="form-control"
+                      name="family_name"
+                      value={family_name}
+                      onChange={this.onChange}
+                      placeholder="Sukunimi"
+                    />
                 </div>
 
-                <div class="form-group">
-                    <label for="city">Ikä:</label>
-                    <input type="text" class="form-control" name="city" value={city} onChange={this.onChange} placeholder="Kaupunki" />
+                <div className="form-group">
+                    <label>Kaupunki:</label>
+                    <input type="text"
+                      class="form-control"
+                      name="city"
+                      value={city}
+                      onChange={this.onChange}
+                      placeholder="Kaupunki"
+                    />
                 </div>
-    
+
                 <button type="submit" class="btn btn-default">Lähetä</button>
             </form>
         </div>
