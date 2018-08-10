@@ -13,7 +13,7 @@ class oDelete extends Component {
     }
 
     componentDidMount() {
-        axios.get('/demo/owners/'+this.props.match.params.id)
+        axios.get('/demo/owner/'+this.props.match.params.id)
             .then(res => {
                 this.setState({ owner_data: res.data });
                 console.log(this.state.owner_data);
@@ -27,7 +27,7 @@ class oDelete extends Component {
 
     delete(id){
         console.log(id);
-        axios.delete('/demo/owners/'+this.props.match.params.id)
+        axios.delete('/demo/owner/'+this.props.match.params.id)
             .then((result) => {
                 this.props.history.push('/omistaja')
             });
@@ -40,7 +40,7 @@ class oDelete extends Component {
           {this.state.owner_data.map((owner) =>
             <dl key={owner._id}>
                   <dt>Nimi:</dt>
-                  <dd>{owner.first_name}&nbsp;{owner.family_name}</dd><br/>
+                  <dd>{owner.fullname}</dd><br/>
 
                   <dt>Kaupunki:</dt>
                   <dd>{owner.city}</dd><br/>

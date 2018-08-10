@@ -7,8 +7,9 @@ class cNew extends Component {
     constructor() {
         super();
         this.state = {
-            name: '',
-            age: '',
+            cName: '',
+            cAge: '',
+            cat_owner: []
         };
     }
     onChange = (e) => {
@@ -20,16 +21,16 @@ class cNew extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const { name, age } = this.state;
+        const { cName, cAge, cat_owner } = this.state;
 
-        axios.post('/demo/cats', { name, age})
+        axios.post('/demo/cat', { cName, cAge, cat_owner })
             .then((result) => {
                 this.props.history.push('/kissa');
             });
     }
 
     render() {
-        const { name, age } = this.state;
+      const { cName, cAge, cat_owner } = this.state;
     return (
         <div className="container">
             <form onSubmit={this.onSubmit}>
@@ -37,19 +38,19 @@ class cNew extends Component {
                     <label>Nimi:</label>
                     <input type="text"
                       className="form-control"
-                      name="name"
-                      value={name}
+                      name="cName"
+                      value={cName}
                       onChange={this.onChange}
                       placeholder="Nimi"
                     />
                 </div>
 
                 <div className="form-group">
-                    <label for="age">Ikä:</label>
+                    <label>Ikä:</label>
                       <input type="text"
                       className="form-control"
-                      name="age"
-                      value={age}
+                      name="cAge"
+                      value={cAge}
                       onChange={this.onChange}
                       placeholder="Ikä"
                     />

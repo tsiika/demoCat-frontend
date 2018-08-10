@@ -12,7 +12,7 @@ class oEdit extends Component {
     }
 
     componentDidMount() {
-        axios.get('/demo/owners/'+this.props.match.params.id)
+        axios.get('/demo/owner/'+this.props.match.params.id)
             .then(res => {
                 this.setState({ owner_data: res.data });
                 console.log(this.state.owner_data);
@@ -33,9 +33,9 @@ class oEdit extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        var { first_name, family_name, city } = this.state.owner_data;
+        var { fullname, city } = this.state.owner_data;
 
-        axios.put('/demo/owners/'+this.props.match.params.id, { first_name, family_name, city })
+        axios.put('/demo/owner/'+this.props.match.params.id, { fullname, city })
           .then((result ) => {
             console.log(result);
             this.props.history.push('/omistaja');   // ?
@@ -52,23 +52,15 @@ class oEdit extends Component {
         <div className="container">
         {this.state.owner_data.map((owner) =>
 
-          <p>Muokkaa omistajaa "{owner.first_name}&nbsp;{owner.family_name}"</p>
+        <p>Muokkaa omistajaa "{owner.fullname}"</p>
 
         )}
         <form onSubmit={this.onSubmit}>
-            <label>Etunimi:</label><br/>
+            <label>Nimi:</label><br/>
                 <input
                   type="text"
-                  name="first_name"
-                  value={this.state.owner_data.first_name}
-                  onChange={this.onChange}
-                /><br/>
-
-            <label>Sukunimi:</label><br/>
-                <input
-                  type="text"
-                  name="family_name"
-                  value={this.state.owner_data.family_name}
+                  name="fullname"
+                  value={this.state.owner_data.fullname}
                   onChange={this.onChange}
                 /><br/>
 

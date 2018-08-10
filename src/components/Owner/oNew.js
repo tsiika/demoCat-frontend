@@ -7,8 +7,7 @@ class oNew extends Component {
     constructor() {
         super();
         this.state = {
-            first_name: '',
-            last_name: '',
+            fullname: '',
             city: '',
         };
     }
@@ -21,38 +20,27 @@ class oNew extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const { first_name, family_name, city } = this.state;
+        const { fullname, city } = this.state;
 
-        axios.post('/demo/owners', { first_name, family_name, city })
+        axios.post('/demo/owner', { fullname, city })
             .then((result) => {
                 this.props.history.push('/omistaja');
             });
     }
 
     render() {
-        const { first_name, family_name, city } = this.state;
+        const { fullname, city } = this.state;
     return (
         <div className="container">
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
-                    <label>Etunimi:</label>
+                    <label>Nimi:</label>
                     <input type="text"
                       class="form-control"
-                      name="first_name"
-                      value={first_name}
+                      name="fullname"
+                      value={fullname}
                       onChange={this.onChange}
-                      placeholder="Etunimi"
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label>Sukunimi:</label>
-                    <input type="text"
-                      class="form-control"
-                      name="family_name"
-                      value={family_name}
-                      onChange={this.onChange}
-                      placeholder="Sukunimi"
+                      placeholder="Nimi"
                     />
                 </div>
 

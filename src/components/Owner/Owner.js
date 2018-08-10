@@ -38,15 +38,13 @@ class Owner extends Component {
             <table>
             <tbody>
                 <tr>
-                    <th>Etunimi</th>
-                    <th>Sukunimi</th>
+                    <th>Nimi</th>
                     <th>Kaupunki</th>
                     <th>Työkalut</th>
                 </tr>
                 {this.state.owner_data.map((owner) =>
                     <tr key={owner._id}>
-                        <td>{owner.first_name}</td>
-                        <td>{owner.family_name}</td>
+                        <td>{owner.fullname}</td>
                         <td>{owner.city}</td>
                         <td>
                           <Link to={`/omistaja/edit/${owner._id}`}>Muokkaa</Link> &nbsp;

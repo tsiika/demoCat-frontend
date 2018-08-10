@@ -13,7 +13,7 @@ class cDelete extends Component {
     }
 
     componentDidMount() {
-        axios.get('/demo/cats/'+this.props.match.params.id)
+        axios.get('/demo/cat/'+this.props.match.params.id)
             .then(res => {
                 this.setState({ cat_data: res.data });
                 console.log(this.state.cat_data);
@@ -27,7 +27,7 @@ class cDelete extends Component {
 
     delete(id){
         console.log(id);
-        axios.delete('/demo/cats/'+this.props.match.params.id)
+        axios.delete('/demo/cat/'+this.props.match.params.id)
             .then((result) => {
                 this.props.history.push('/kissa')
             });
@@ -40,10 +40,10 @@ class cDelete extends Component {
             {this.state.cat_data.map((cat) =>
             <dl key={cat._id}>
                   <dt>Nimi:</dt>
-                  <dd>{cat.name}</dd><br/>
+                  <dd>{cat.cName}</dd><br/>
 
                   <dt>Ikä:</dt>
-                  <dd>{cat.age}</dd><br/>
+                  <dd>{cat.cAge}</dd><br/>
 
                   <dt>ID-tunnus:</dt>
                   <dd>{cat._id}</dd><br/>

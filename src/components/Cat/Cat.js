@@ -41,12 +41,14 @@ class Cat extends Component {
             <tr>
                 <th>Nimi</th>
                 <th>Ikä</th>
+                <th>Omistaja_id</th>
                 <th>Työkalut</th>
             </tr>
             {this.state.cat_data.map((cat) =>
                 <tr key={cat._id}>
-                    <td>{cat.name}</td>
-                    <td>{cat.age}</td>
+                    <td>{cat.cName}</td>
+                    <td>{cat.cAge}</td>
+                    <td>{cat.cat_owner}</td>
                     <td>
                         <Link to={`/kissa/edit/${cat._id}`}>Muokkaa</Link> &nbsp;
                         <Link to={`/kissa/delete/${cat._id}`}>Poista</Link>
