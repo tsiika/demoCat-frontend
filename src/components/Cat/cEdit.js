@@ -59,21 +59,21 @@ class cEdit extends Component {
         <form onSubmit={this.onSubmit}>
             <label>Nimi:</label><br/>
               <input type="text"
-                name="name"
+                name="cName"
                 value={this.state.cat_data.cName}
                 onChange={this.onChange}
               /><br/>
 
             <label>Ikä:</label><br/>
               <input type="number"
-                name="age"
+                name="cAge"
                 value={this.state.cat_data.cAge}
                 onChange={this.onChange}
               /><br/>
 
             <label>Omistaja_id:</label><br/>
               <input type="text"
-                name="owner"
+                name="cat_owner"
                 value={this.state.cat_data.cat_owner}
                 onChange={this.onChange}
               /><br/>
@@ -87,6 +87,7 @@ class cEdit extends Component {
     }
 }
 
-/* cat_owner / omistaja_id pitäisi olla [array] - mikä input type=? */
+/* formin name:t muutettu nyt uusiksi - toimii, ja myös cat_owner päivittyy */
+
 
 export default cEdit;
