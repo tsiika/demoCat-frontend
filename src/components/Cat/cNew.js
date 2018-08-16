@@ -9,7 +9,7 @@ class cNew extends Component {
         this.state = {
             cName: '',
             cAge: '',
-            cat_owner: []
+            cat_owner: ''
         };
     }
     onChange = (e) => {
@@ -63,5 +63,7 @@ class cNew extends Component {
         );
     }
 }
+
+/* kolmas kenttä: omistajien alasvetovalikko (nimet) - valitaan _id -> cat_owner(id) */
 
 export default cNew;

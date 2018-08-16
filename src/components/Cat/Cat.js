@@ -20,8 +20,9 @@ class Cat extends Component {
     }
 
     componentDidMount() {
-      axios.get('/demo/cats/')
-        .then(res => {
+//    axios.get('/demo/cats/')
+      axios.get('/demo/show/cats/')
+      .then(res => {
             this.setState({ cat_data: res.data });
             console.log(this.state.cat_data);
         })
@@ -42,13 +43,15 @@ class Cat extends Component {
                 <th>Nimi</th>
                 <th>Ikä</th>
                 <th>Omistaja_id</th>
+                <th>Omistaja</th>
                 <th>Työkalut</th>
             </tr>
             {this.state.cat_data.map((cat) =>
                 <tr key={cat._id}>
                     <td>{cat.cName}</td>
                     <td>{cat.cAge}</td>
-                    <td>{cat.cat_owner}</td>
+                    <td>{cat.cat_owner._id}</td>
+                    <td>{cat.cat_owner.fullname}</td>
                     <td>
                         <Link to={`/kissa/edit/${cat._id}`}>Muokkaa</Link> &nbsp;
                         <Link to={`/kissa/delete/${cat._id}`}>Poista</Link>
