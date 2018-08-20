@@ -9,7 +9,7 @@ class cNew extends Component {
         this.state = {
             cName: '',
             cAge: '',
-            cat_owner: '5b7a8b3925cd7e296497591b'
+            cat_owner: ''
         };
     }
     onChange = (e) => {
@@ -53,6 +53,17 @@ class cNew extends Component {
                       value={cAge}
                       onChange={this.onChange}
                       placeholder="Ikä"
+                    />
+                    </div>
+
+                <div className="form-group">
+                    <label>Omistaja ID:</label>
+                      <input type="text"
+                      className="form-control"
+                      name="cat_owner"
+                      value={cat_owner}
+                      onChange={this.onChange}
+                      placeholder="Omistaja ID"
                     />
                 </div>
 
