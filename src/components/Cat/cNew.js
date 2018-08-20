@@ -9,7 +9,7 @@ class cNew extends Component {
         this.state = {
             cName: '',
             cAge: '',
-            cat_owner: ''
+            cat_owner: '5b7a8b3925cd7e296497591b'
         };
     }
     onChange = (e) => {
